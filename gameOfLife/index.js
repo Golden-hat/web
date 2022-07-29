@@ -14,7 +14,6 @@ function buildGridRandom(){
     return new Array(COLS).fill(null)
         .map(() => new Array(ROWS).fill(null)
             .map(() => Math.floor(Math.random()*1.5)));
-            
 }
 
 //drawing function
@@ -77,8 +76,6 @@ const run = document.querySelector('[run-button]');
 const step = document.querySelector('[step-button]');
 let toggle = -1;
 function buttons(){
-    
-    
     clear.addEventListener('click', () =>{
         for(let col = 0; col < grid.length; col++){
             for(let row = 0; row < grid[col].length; row++){
@@ -181,7 +178,6 @@ function cellAdder(){
     });
 }
 
-
 let grid = buildGridRandom();
 buttons();
 cellAdder();
@@ -194,6 +190,3 @@ function update(){
         requestAnimationFrame(update);
     }
 }
-
-
-
