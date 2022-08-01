@@ -82,6 +82,8 @@ function buttons(){
                 grid[col][row] = 0;
             }
         }
+        run.innerHTML = 'Run';
+        toggle = toggle*-1;
         requestAnimationFrame(update);
     });
     
