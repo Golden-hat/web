@@ -18,7 +18,7 @@ function portrayMandlebrot(){
     for(let x = 0; x <= width1; x++){
         for(let y = 0; y <= height1; y++){
 
-            dx = (x-500)/500 -0.5;
+            dx = (x-500)/500 - 0.5;
             dy = (y-500)/500;
             a = dx;
             b = dy;
