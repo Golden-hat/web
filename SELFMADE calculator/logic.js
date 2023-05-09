@@ -29,7 +29,7 @@ class Calculator{
     }
 
     changeSign(){
-        if(this.currentValue == '.'){
+        if(this.currentValue == ''){
             return;
         }
         this.currentValue = this.currentValue * -1;
