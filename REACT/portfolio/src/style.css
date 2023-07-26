@@ -50,3 +50,20 @@ body{
     background: rgb(255, 224, 224, 0.7);
 }
 
+.name{
+    justify-content: center;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 100px;
+    margin: 0px;
+}
+
+.subtitle{
+    justify-content: center;
+    text-align: center;
+    font-family: monospace;
+    font-weight: 100;
+    font-size: 15px;
+    margin-top: 20px;
+}
