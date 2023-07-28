@@ -11,10 +11,10 @@ import React from "react"
 */
 export default function Header(){
     return(
-            <div>
-                <h1 className = "name">Yassin Pellicer Lamla</h1>    
-                <h2 className = "subtitle">Computer science student in the Polythecnic University of Valencia
-                eager to learn new things and explore the world of programming.</h2>
-            </div>
+        <div>
+            <h1 className = "name">Yassin Pellicer Lamla</h1>    
+            <h2 className = "subtitle">Computer science student in the Polythecnic University of Valencia
+            eager to learn new things and explore the world of programming.</h2>
+        </div>
     );
 }
