@@ -10,12 +10,10 @@ export default function Container({img, text}){
             display: "flex",
             padding: "15px",
             margin: "70px",
-            justifyContent:"space-around"}}>
-                <img src={img} alt="error" style={{
-                height: "150px",
-                marginTop: "20px",
-                marginBottom: "20px",
-                marginLeft: "20px"}}></img>
+            justifyContent: "center",
+            alignItems: "center"}}>
+                <img src={img} alt="" style={{
+                height: "170px"}}></img>
                     <p style={{
                         textAlign:"justify",
                         padding:"20px",
