@@ -8,19 +8,18 @@ export default function Container({img, text}){
             boxSizing: "border-box",
             border: "1px solid black", 
             display: "flex",
-            padding: "15px",
+            padding: "30px",
             margin: "70px",
             justifyContent: "center",
             alignItems: "center"}}>
-                <img src={img} alt="" style={{
-                height: "170px"}}></img>
-                    <p style={{
-                        textAlign:"justify",
-                        padding:"20px",
-                        margin:"0px",
-                        fontSize: "20px"}}>
-                        {text}
-                    </p>
+                {img}
+                <p style={{
+                    textAlign:"justify",
+                    padding:"20px",
+                    margin:"0px",
+                    fontSize: "20px"}}>
+                    {text}
+                </p>
         </div>
     )
 }

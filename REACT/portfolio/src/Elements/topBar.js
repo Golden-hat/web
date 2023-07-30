@@ -11,11 +11,14 @@ import React from "react"
 */
 export default function TopBar(){
     return(
-        <nav className="NavBar">
-            <div className="AboutMe">
+        <nav className="NavBar" style={{"padding":"30px","display":"flex","justifyContent":"space-between"}}>
+            <div className="AboutMe" >
                 <button className="navButton">
                     About Me
-                </button>    
+                </button>
+                <button className="navButtonPROJECTS" style={{fontFamily: "Syncopate", fontStyle:"normal", fontWeight:"700"}}>
+                    MY PROJECTS
+                </button>        
             </div>
             <div className="ContactsGit"> 
                 <button className="navButton">

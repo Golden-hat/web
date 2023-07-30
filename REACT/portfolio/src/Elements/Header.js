@@ -12,9 +12,22 @@ import React from "react"
 export default function Header(){
     return(
         <div>
-            <h1 className = "name">Yassin Pellicer Lamla</h1>    
-            <h2 className = "subtitle" style={{margin: "20px"}}>Computer science student in the Polythecnic University of Valencia
-            eager to learn new things and explore the world of programming.</h2>
+            <h1 className = "name" style={{"justifyContent":"center",
+                "textAlign":"center",
+                "fontFamily":"monospace",
+                "fontWeight":"bold",
+                "fontSize":"120px",
+                "margin":"0px"}}>
+                    Yassin Pellicer Lamla</h1>    
+            <h2 className = "subtitle" style={{"justifyContent":"center",
+                "textAlign":"center",
+                "fontFamily":"monospace",
+                "fontWeight":"100",
+                "fontSize":"18px",
+                "marginTop":"20px",
+                "marginBottom":"70px"}}>
+                    Computer science student in the Polythecnic University of Valencia
+                    eager to learn new things and explore the world of programming.</h2>
         </div>
     );
 }
