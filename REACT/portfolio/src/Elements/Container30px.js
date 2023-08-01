@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Container70({img, text}){
+export default function Container30({img, text}){
     return(
         <div style={{
             borderRadius: "50px",
@@ -8,14 +8,9 @@ export default function Container70({img, text}){
             boxSizing: "border-box",
             border: "1px solid black", 
             display: "flex",
-            padding: "30px",
-            margin: "70px",
-            justifyContent: "center",
-            alignItems: "center"}}>
+            margin: "30px"}}>
                 {img}
                 <p style={{
-                    textAlign:"justify",
-                    padding:"20px",
                     margin:"0px",
                     fontSize: "20px"}}>
                     {text}

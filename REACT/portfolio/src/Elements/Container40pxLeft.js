@@ -11,8 +11,8 @@ export default function Container40({img, text}){
             margin: "40px",
             justifyContent: "center",
             alignItems: "center"}}>
-                {img}
                 {text}
+                {img}
         </div>
     )
 }

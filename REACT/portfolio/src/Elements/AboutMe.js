@@ -1,8 +1,8 @@
 import React from "react"
-import Container from "./Container70px.js"
+import Container from "./Container30px.js"
 
 const leftCardText = 
-    <div>
+    <div style={{padding: "40px"}}>
         <h1 style={{marginBottom:"20px"}}>
             Hello!
         </h1>
@@ -14,7 +14,7 @@ const leftCardText =
     </div>
 
 const rightCardText = 
-    <div>
+    <div style={{padding: "40px"}}>
         <h1 style={{marginBottom:"20px"}}>
             So far...
         </h1>
@@ -27,7 +27,7 @@ const rightCardText =
     </div>
 
 const imageProfile = 
-    <img src={require("./ElementImages/me.png")} alt="" style={{height: "120px", marginRight:"20px"}}></img>
+    <img src={require("./ElementImages/me.png")} alt="" style={{width:"160px", margin:"40px"}}></img>
 
 export default function AboutMe(){
     return(

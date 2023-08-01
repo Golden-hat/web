@@ -28,7 +28,9 @@ function portrayJulia(){
                 b = 2*(a*b) + -0.17523 ; 
                 a = d;
                 H = Math.abs(d+b)> 100;
-                if(H){drawParticle(x, y, 1, "rgb("+ t*3 +","+ t*4 +","+ t*2.5 +")"); break;}
+                if(H){drawParticle(x, y, 1, 
+                    "rgb("+ t*3 +","+ t*4 +","+ t*2.5 +")"); 
+                    break;}
             }
         }
     }
