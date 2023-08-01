@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Container({img, text}){
+export default function Container70({img, text}){
     return(
         <div style={{
             borderRadius: "50px",
