@@ -16,15 +16,16 @@ export default function Header(){
                 "textAlign":"center",
                 "fontFamily":"monospace",
                 "fontWeight":"bold",
-                "fontSize":"120px",
-                "margin":"0px"}}>
+                "fontSize":"160px",
+                "marginTop":"40px"}}>
                     Yassin Pellicer Lamla</h1>    
             <h2 className = "subtitle" style={{"justifyContent":"center",
                 "textAlign":"center",
                 "fontFamily":"monospace",
                 "fontWeight":"100",
                 "fontSize":"18px",
-                "marginTop":"20px"}}>
+                "marginTop":"20px",
+                "marginBottom":"80px"}}>
                     Computer science student in the Polythecnic University of Valencia
                     eager to learn new things and explore the world of programming.</h2>
         </div>

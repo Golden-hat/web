@@ -31,16 +31,13 @@ const imageProfile =
 
 export default function AboutMe(){
     return(
-        <div className = "aboutMe" style={{justifyContent:"space-around", marginBottom:"30px"}}>
-            <div className = "" style={{display:"flex", justifyContent:"space-between", 
-                marginLeft: "320px", marginRight:"240px"}}>
+        <div className = "aboutMe" style={{justifyContent:"space-around", margin:"60px", marginBottom:"60px"}}>
+            <div className = "cards" style={{justifyContent:"center", display:"flex"}}>
+                {<Container img={imageProfile}
+                text = {leftCardText}/>}
+                {<Container img={""}
+                text = {rightCardText}/>}
             </div>
-                <div className = "cards" style={{justifyContent:"center", display:"flex"}}>
-                    {<Container img={imageProfile}
-                    text = {leftCardText}/>}
-                    {<Container img={""}
-                    text = {rightCardText}/>}
-                </div>
         </div>
     )
 }
