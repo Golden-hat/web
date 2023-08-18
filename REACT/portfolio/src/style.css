@@ -42,10 +42,10 @@ body{
 
 }
 
-.MYPROJECTS{
+.titleImportant{
     -webkit-text-stroke: 0.5px #99e7ff;
     font-family:"Syncopate";
-    font-size: 6vw;
+    font-size: 8vw;
     text-align: center;
     letter-spacing: "10px";
     

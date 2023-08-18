@@ -8,6 +8,7 @@ export default function Container30({img, text}){
             boxSizing: "border-box",
             border: "1px solid black", 
             display: "flex",
+            flexWrap: "wrap",
             margin: "30px"}}>
                 {img}
                 <p style={{

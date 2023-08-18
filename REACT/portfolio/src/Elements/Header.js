@@ -25,6 +25,8 @@ export default function Header(){
                 "fontWeight":"100",
                 "fontSize":"18px",
                 "marginTop":"20px",
+                "marginLeft":"100px",
+                "marginRight":"100px",
                 "marginBottom":"80px"}}>
                     Computer science student in the Polythecnic University of Valencia
                     eager to learn new things and explore the world of programming.</h2>

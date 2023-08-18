@@ -6,7 +6,7 @@ import MathJax from 'react-mathjax'
 
 /*info*/
 const SnakeGame=
-<div style={{padding:"40px"}}>
+<div style={{padding:"40px", inlineSize:"450px"}}>
     <h1 style={{fontFamily:"monospace", marginBottom:"20px"}}>
         Snake Game
     </h1>
@@ -21,19 +21,12 @@ const SnakeGame=
         <br></br> <br></br> This one was <b>one of my first
         projects.</b> It involved learning the basics of python along with pygame to develop something I had already created a while back
         in web with the <b> vanilla elements of HTML, Javascript and CSS</b> (with canvas, textStroke, eventListeners...). <br></br> <br></br>
-
-        Here is a snippet of the code that removes the last part of the body of the snake if it hasn't yet eaten enough fruits: <br></br> <br></br>
     </p>
-    <code style={{fontSize:"13px"}}>
-        while i &lt; len(GroupBlock): <br></br>
-        &emsp; &emsp; &emsp; if len(snake_list) &lt; LenSnake: <br></br>
-        &emsp; &emsp; &emsp; del snake_list[0] <br></br>
-    </code>
 </div>
 
 const inlineFormula = `Z_{n+1} = Z_n^2 + C`;
 const juliaSet = 
-    <img src={require("./ElementImages/fractals.png")} alt="" style={{height: "900px", borderRadius:"50px", marginRight:"40px",
+    <img src={require("./ElementImages/fractals.png")} alt="" style={{height: "700px", borderRadius:"50px", marginRight:"40px",
     marginBottom:"40px", marginTop:"40px"}}></img>
 const fractals=
 <div style={{padding: "40px", inlineSize:"650px"}}>
@@ -72,7 +65,7 @@ const fractals=
 </div>
 
 const brickBreaker=
-<div style={{padding: "40px"}}>
+<div style={{padding: "40px", inlineSize:"450px"}}>
     <h1 style={{fontFamily:"monospace", marginBottom:"20px"}}>
         Brick breaker
     </h1>
@@ -93,7 +86,7 @@ const brickBreaker=
         <br></br> <br></br>
         
         This project was the one in which i decided to look for the <b>least amount of information</b>, as an intent
-        to develop a new idea by myself. If I were to rebuild it to day, i'd go for a more intensive OOP approach. <br></br> <br></br>
+        to develop a new idea by myself. If I were to rebuild it today, i'd go for a more intensive OOP approach. <br></br> <br></br>
     </p>
     <p style={{
             justifyContent:"center", 
@@ -113,9 +106,11 @@ const brickBreaker=
 </div>
 
 const gameOfLifeImage=
-    <video src={require("./ElementImages/conway.mp4")} type="video/mp4" autoPlay loop muted playsinline style={{width:"500px", marginRight:"40px"}}></video>
+    <video src={require("./ElementImages/conway.mp4")} type="video/mp4" autoPlay loop muted playsinline style={{width:"20vw",
+    marginRight:"40px",
+    marginBottom:"40px", marginTop:"40px"}}></video>
 const gameOfLife=
-<div style={{padding: "40px"}}>
+<div style={{padding: "40px", inlineSize:"650px"}}>
     <h1 style={{fontFamily:"monospace", marginBottom:"20px"}}>
        Conway's Game of Life
     </h1>
@@ -138,15 +133,37 @@ const gameOfLife=
         features letting the user randomize and customize the patterns to generate what they want to see.</b> <br></br> The user
         would move a red dot using the WASD keys, and place new cells by pressing ENTER. <br></br> <br></br>
 
-        <b>On the right you will see a video of the conway's game of life using my implementation.</b>
+        <b>Here you will see a video of the conway's game of life using my implementation.</b>
     </p>
+</div>
+
+const skills =
+<div style={{display:"flex", justifyContent:"center", flexWrap:"wrap", padding:"50px"}}>
+    <Container30 img={<img src={require("./ElementImages/icons/c-.png")} alt="" style={{height:"150px",
+    padding:"20px"}}></img>}/>
+        <Container30 img={<img src={require("./ElementImages/icons/letter-c.png")} alt="" style={{height:"150px",
+    padding:"20px"}}></img>}/>
+        <Container30 img={<img src={require("./ElementImages/icons/haskell.png")} alt="" style={{height:"150px",
+    padding:"20px"}}></img>}/>
+        <Container30 img={<img src={require("./ElementImages/icons/html-5.png")} alt="" style={{height:"150px",
+    padding:"20px"}}></img>}/>
+        <Container30 img={<img src={require("./ElementImages/icons/css-3.png")} alt="" style={{height:"150px",
+    padding:"20px"}}></img>}/>
+        <Container30 img={<img src={require("./ElementImages/icons/js.png")} alt="" style={{height:"150px",
+    padding:"20px"}}></img>}/>
+        <Container30 img={<img src={require("./ElementImages/icons/physics.png")} alt="" style={{height:"150px",
+    padding:"20px"}}></img>}/>
+        <Container30 img={<img src={require("./ElementImages/icons/python.png")} alt="" style={{height:"150px",
+    padding:"20px"}}></img>}/>
+            <Container30 img={<img src={require("./ElementImages/icons/java.png")} alt="" style={{height:"150px",
+    padding:"20px"}}></img>}/>
 </div>
 
 /*items*/
 const rightCardText = 
     <div>
         <h1 style={{marginBottom:"20px", marginTop:"40px", fontFamily:"Syncopate", textAlign:"center"}}>
-            PYTHON PROJECTS
+            PYTHON <br></br> PROJECTS
         </h1>
         <Container40 img={""} text={brickBreaker}/>
         <Container30 img={""} text={SnakeGame}/> 
@@ -158,19 +175,26 @@ const leftCardText =
             WEB PROJECTS
         </h1>   
         <Container40Left img={juliaSet} text={fractals}/>
+        <br></br>
         <Container40Left img={gameOfLifeImage} text={gameOfLife}/>
     </div>
 
 export default function Projects(){
     return(
         <div>
-            <h1 className="MYPROJECTS" style={{textAlign:"center", marginBottom:"40px"}}>
+            <h1 className="titleImportant" style={{textAlign:"center", marginBottom:"40px"}}>
                 MY PROJECTS
             </h1>
-            <div style={{display:"flex", justifyContent:"space-around", marginBottom:"50px"}}>
+            <div style={{display:"flex", justifyContent:"space-around", margin:"50px", flexWrap:"wrap"}}>
                 {<Container30 img={""} text={leftCardText}/>}
                 {<Container30 img={""} text={rightCardText}/>}
             </div>
+            <h1 style={{fontFamily:"Syncopate", padding:"0px", textAlign:"center", marginTop:"40px", fontSize:"70px"}}>
+                    SKILLS DEVELOPED
+            </h1>
+            <div style={{display:"flex", justifyContent:"center", marginRight:"200px", marginLeft:"200px", marginBottom:"100px"}}>
+                {<Container30 img={""} text={skills}/>}
+            </div>  
         </div>
     )
 }

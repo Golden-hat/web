@@ -2,7 +2,7 @@ import React from "react"
 import Container from "./Container30px.js"
 
 const leftCardText = 
-    <div style={{padding: "40px"}}>
+    <div style={{padding: "40px", inlineSize:"600px"}}>
         <h1 style={{marginBottom:"20px"}}>
             Hello!
         </h1>
@@ -14,7 +14,7 @@ const leftCardText =
     </div>
 
 const rightCardText = 
-    <div style={{padding: "40px"}}>
+    <div style={{padding: "40px", inlineSize:"800px"}}>
         <h1 style={{marginBottom:"20px"}}>
             So far...
         </h1>
@@ -32,7 +32,7 @@ const imageProfile =
 export default function AboutMe(){
     return(
         <div className = "aboutMe" style={{justifyContent:"space-around", margin:"60px", marginBottom:"60px"}}>
-            <div className = "cards" style={{justifyContent:"center", display:"flex"}}>
+            <div className = "cards" style={{justifyContent:"center", display:"flex", flexWrap:"wrap"}}>
                 {<Container img={imageProfile}
                 text = {leftCardText}/>}
                 {<Container img={""}

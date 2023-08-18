@@ -20,12 +20,12 @@ export default function TopBar(){
                     MY PROJECTS
                 </button>        
             </div>
-            <div className="ContactsGit"> 
-                <button className="navButton">
-                    Contact
-                </button>
+            <div className="ContactsGit">
                 <button className="navButton">
                     Github and social media!
+                </button>
+                <button className="navButton">
+                    Contact
                 </button>
             </div>
         </nav>
