@@ -16,7 +16,7 @@ export default function Header(){
                 "textAlign":"center",
                 "fontFamily":"monospace",
                 "fontWeight":"bold",
-                "fontSize":"160px",
+                "fontSize":"10vw",
                 "marginTop":"40px"}}>
                     Yassin Pellicer Lamla</h1>    
             <h2 className = "subtitle" style={{"justifyContent":"center",
