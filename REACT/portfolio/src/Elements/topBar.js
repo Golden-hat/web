@@ -22,9 +22,6 @@ export default function TopBar(){
             </div>
             <div className="ContactsGit">
                 <button className="navButton">
-                    Github and social media!
-                </button>
-                <button className="navButton">
                     Contact
                 </button>
             </div>
