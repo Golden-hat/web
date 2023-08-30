@@ -1,5 +1,4 @@
 import Header from './Elements/Header'
-import TopBar from './Elements/topBar'
 import AboutMe from './Elements/AboutMe'
 import Projects from './Elements/Projects'
 import Contact from './Elements/Contact'
@@ -12,7 +11,6 @@ function App() {
 				rgba(255,255,255,1)), url(${require("./Elements/ElementImages/Sky.jpg")})`,
 				BackgroundSize: "100vh",
 				MarginBottom: "50px"}}>
-				<TopBar/>
 				<Header/>
 				<AboutMe/>
 			</div>

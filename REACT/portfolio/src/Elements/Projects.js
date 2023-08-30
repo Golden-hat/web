@@ -130,10 +130,17 @@ const gameOfLife=
         <br></br> <br></br>
 
         I had to read quite a bit of documentation for this one, but I was happy <b>I was able to provide my own
-        features letting the user randomize and customize the patterns to generate what they want to see.</b> <br></br> The user
-        would move a red dot using the WASD keys, and place new cells by pressing ENTER. <br></br> <br></br>
+        features letting the user randomize and customize the patterns to generate what they want to see.</b> 
+        <br></br>  <br></br> The user would move a red dot using the WASD keys, 
+        and place new cells by pressing ENTER. <br></br> <br></br>
 
         <b>Here you will see a video of the conway's game of life using my implementation.</b>
+
+        <br></br> <br></br>
+
+        You can play the game <b>yourself</b> following this link: <br></br> <br></br>
+
+        <a href="https://gameoflife-goldenhat.netlify.app/">Play GOL</a>
     </p>
 </div>
 
@@ -171,11 +178,10 @@ const rightCardText =
 
 const leftCardText = 
     <div>
-        <h1 style={{fontFamily:"Syncopate", padding:"0px", textAlign:"center", marginTop:"40px"}}>
+        <h1 style={{fontFamily:"Syncopate", padding:"20px", textAlign:"center", marginTop:"40px"}}>
             WEB PROJECTS
         </h1>   
         <Container40Left img={juliaSet} text={fractals}/>
-        <br></br>
         <Container40Left img={gameOfLifeImage} text={gameOfLife}/>
     </div>
 

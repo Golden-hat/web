@@ -16,15 +16,15 @@ export default function Header(){
                 "textAlign":"center",
                 "fontFamily":"monospace",
                 "fontWeight":"bold",
-                "fontSize":"10vw",
-                "marginTop":"40px"}}>
+                "fontSize":"8vw",
+                "paddingTop":"80px"}}>
                     Yassin Pellicer Lamla</h1>    
             <h2 className = "subtitle" style={{"justifyContent":"center",
                 "textAlign":"center",
                 "fontFamily":"monospace",
                 "fontWeight":"100",
                 "fontSize":"18px",
-                "marginTop":"20px",
+                "marginTop":"60px",
                 "marginLeft":"100px",
                 "marginRight":"100px",
                 "marginBottom":"80px"}}>

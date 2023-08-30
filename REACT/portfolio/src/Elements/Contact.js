@@ -1,8 +1,5 @@
 import React from "react"
-import Projects from './Projects'
-import Container40 from "./Container40px.js"
 import Container30 from "./Container30px.js"
-import Container40Left from "./Container40pxLeft.js"
 
 export default function Contact(){
     return(
@@ -12,6 +9,11 @@ export default function Contact(){
             <h1 className="titleImportant">
                 CONTACT
             </h1>
+            <p style={{fontFamily:"Montserrat", textAlign:"center", marginTop:"50px", marginBottom:"70px", fontSize:"20px"}}>
+                You can find all my projects and their source code (along with many more) in my Github Repositories:
+                <br></br> <br></br>
+                <a href="https://github.com/Golden-hat?tab=repositories">Go to my Github site</a>
+            </p>
             <p style={{fontFamily:"Montserrat", textAlign:"center", marginTop:"50px", fontSize:"20px"}}>
                 Here is my CV, with all my contact information and my previous experience.
             </p>
