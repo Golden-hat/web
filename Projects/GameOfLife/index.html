@@ -11,7 +11,7 @@
     <h1 class = mainTitle>
         Conway's Game of Life
     </h1>
-    <p>
+    <p style="font-family: monospace;">
         <b>Conway's Game of Life follows four very simple rules:</b> 
         <br>
         <br> 1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
@@ -22,8 +22,10 @@
         <br> <b>Use "WASD" keys to move around a cursor through the grid</b> that will allow you to place cells using the "P" key.
         <br> The page <b>always generates a random pattern when it first loads.</b> You can always refresh the page to obtain a new pattern.
     </p>
-    <canvas>
-    </canvas>
+    <div  class="canvaCont" style="margin: 90px">    
+        <canvas>
+        </canvas>
+    </div>
     <div class="buttons">
         <button step-button class="Step">
             Step
