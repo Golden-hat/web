@@ -3,6 +3,7 @@
 *{
     box-sizing: border-box;
     margin: 0px;
+    overflow-x: hidden;
 }
 
 body{
@@ -64,4 +65,56 @@ body{
   0% {background-position: 0% 0%;}
   50% {background-position: 100% 100%;}
   100% {background-position: 0% 0%;}
+}
+
+@media (max-width:950px) {
+    .icon{
+        width: 100px !important;
+        height: 100px !important;
+    }
+    .skills{
+        padding: 20px !important;
+        margin: 0px !important;
+        margin-bottom: 50px !important;
+    }
+    .yassin{
+        object-fit: contain;
+        height: auto !important;
+    }
+
+    .container30{
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        flex-wrap: wrap !important;
+    }
+}
+
+@media only screen and (max-width:1400px){
+    .cardsAboutMe{
+        flex-wrap: wrap !important;
+    }
+    .projsWrap{
+        flex-wrap: wrap !important;
+    }
+    .container40{
+        margin-left: 30px !important;
+        margin-right: 30px !important;
+        font-size: 15px !important;
+        flex-wrap: wrap !important;
+    }
+
+    .containerIMG{
+        margin:30px !important;
+    }
+
+    .titleSub{
+        font-size: 30px !important;
+    }
+
+    .container40Left{
+        font-size: 15px !important;
+        margin-left: 30px !important;
+        margin-right: 30px !important;
+        flex-wrap: wrap !important;
+    }
 }

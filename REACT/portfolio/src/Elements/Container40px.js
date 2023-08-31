@@ -2,7 +2,7 @@ import React from "react"
 
 export default function Container40({img, text}){
     return(
-        <div style={{
+        <div className="container40" style={{
             borderRadius: "50px",
             borderColor: "black", 
             boxSizing: "border-box",

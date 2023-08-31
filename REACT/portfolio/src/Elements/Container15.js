@@ -2,13 +2,14 @@ import React from "react"
 
 export default function Container30({img, text}){
     return(
-        <div className="container30" style={{
+        <div style={{
             borderRadius: "50px",
             borderColor: "black", 
             boxSizing: "border-box",
             border: "1px solid black", 
             display: "flex",
-            margin: "30px"}}>
+            flexWrap: "wrap",
+            margin: "15px"}}>
                 {img}
                 <p style={{
                     margin:"0px",

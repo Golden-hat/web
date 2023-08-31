@@ -2,20 +2,16 @@ import React from "react"
 import Container40 from "./Container40px.js"
 import Container30 from "./Container30px.js"
 import Container40Left from "./Container40pxLeft.js"
+import Container15 from "./Container15.js"
 import MathJax from 'react-mathjax'
 
 /*info*/
 const SnakeGame=
-<div style={{padding:"40px", inlineSize:"450px"}}>
+<div style={{padding:"40px", inlineSize:"400px"}}>
     <h1 style={{fontFamily:"monospace", marginBottom:"20px"}}>
         Snake Game
     </h1>
-    <p style={{
-            justifyContent:"center", 
-            alignContent:"center",
-            textAlign:"center"}}>
-        <img src={require("./ElementImages/snake.png")} alt="" style={{height: "300px"}}></img> <br></br> <br></br>
-    </p>
+        <img src={require("./ElementImages/snake.png")} alt="" style={{height: "100%", width:"100%"}}></img> <br></br> <br></br>
     <p style={{textAlign:"justify"}}>
         The classic snake game <b> done in python with the pygame library </b>
         <br></br> <br></br> This one was <b>one of my first
@@ -26,10 +22,10 @@ const SnakeGame=
 
 const inlineFormula = `Z_{n+1} = Z_n^2 + C`;
 const juliaSet = 
-    <img src={require("./ElementImages/fractals.png")} alt="" style={{height: "700px", borderRadius:"50px", marginRight:"40px",
+    <img className= "containerIMG" src={require("./ElementImages/fractals.png")} alt="" style={{height: "700px", borderRadius:"50px", marginRight:"40px",
     marginBottom:"40px", marginTop:"40px"}}></img>
 const fractals=
-<div style={{padding: "40px", inlineSize:"650px"}}>
+<div style={{padding: "40px", inlineSize:"600px"}}>
     <h1 style={{fontFamily:"monospace", marginBottom:"20px"}}>
         Fractals
     </h1>
@@ -38,7 +34,7 @@ const fractals=
             alignContent:"center",
             textAlign:"center"}}>
         My interest in these mathematical structures sprung from this <b>Numberphile video:</b> <br></br> <br></br>
-        <iframe width="400" height="200" src="https://www.youtube.com/embed/FFftmWSzgmk" title="YouTube video player" 
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/FFftmWSzgmk" title="YouTube video player" 
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
         web-share"></iframe> <br></br> <br></br>
     </p>
@@ -60,12 +56,12 @@ const fractals=
             alignContent:"center",
             textAlign:"center"}}>
         The approach followed in code is quite simple: <br></br> <br></br>
-        <img src={require("./ElementImages/fractalCode.png")} alt="" style={{height: "300px"}}></img>
+        <img src={require("./ElementImages/fractalCode.png")} alt="" style={{height: "100%", width:"100%"}}></img>
     </p>
 </div>
 
 const brickBreaker=
-<div style={{padding: "40px", inlineSize:"450px"}}>
+<div style={{padding: "40px", inlineSize:"400px"}}>
     <h1 style={{fontFamily:"monospace", marginBottom:"20px"}}>
         Brick breaker
     </h1>
@@ -73,7 +69,7 @@ const brickBreaker=
             justifyContent:"center", 
             alignContent:"center",
             textAlign:"center"}}>
-        <img src={require("./ElementImages/brickBreaker.png")} alt="" style={{height: "300px"}}></img> <br></br> <br></br>
+        <img src={require("./ElementImages/brickBreaker.png")} alt="" style={{height: "100%", width:"100%"}}></img> <br></br> <br></br>
     </p>
     <p style={{
             justifyContent:"center", 
@@ -106,11 +102,12 @@ const brickBreaker=
 </div>
 
 const gameOfLifeImage=
-    <video src={require("./ElementImages/conway.mp4")} type="video/mp4" autoPlay loop muted playsinline style={{width:"20vw",
+    <video className= "containerIMG" src={require("./ElementImages/conway.mp4")} type="video/mp4" autoPlay loop muted playsinline style={{objectFit:"contain",
+    maxHeight:"250px",
     marginRight:"40px",
     marginBottom:"40px", marginTop:"40px"}}></video>
 const gameOfLife=
-<div style={{padding: "40px", inlineSize:"650px"}}>
+<div style={{padding: "40px", inlineSize:"600px"}}>
     <h1 style={{fontFamily:"monospace", marginBottom:"20px"}}>
        Conway's Game of Life
     </h1>
@@ -145,40 +142,40 @@ const gameOfLife=
 </div>
 
 const skills =
-<div style={{display:"flex", justifyContent:"center", flexWrap:"wrap", padding:"50px"}}>
-    <Container30 img={<img src={require("./ElementImages/icons/c-.png")} alt="" style={{height:"150px",
+<div style={{display:"flex", justifyContent:"center", flexWrap:"wrap"}}>
+    <Container15  img={<img className = "icon" src={require("./ElementImages/icons/c-.png")} alt="" style={{height:"150px",
     padding:"20px"}}></img>}/>
-        <Container30 img={<img src={require("./ElementImages/icons/letter-c.png")} alt="" style={{height:"150px",
+        <Container15 img={<img className = "icon" src={require("./ElementImages/icons/letter-c.png")} alt="" style={{height:"150px",
     padding:"20px"}}></img>}/>
-        <Container30 img={<img src={require("./ElementImages/icons/haskell.png")} alt="" style={{height:"150px",
+        <Container15 img={<img className = "icon" src={require("./ElementImages/icons/haskell.png")} alt="" style={{height:"150px",
     padding:"20px"}}></img>}/>
-        <Container30 img={<img src={require("./ElementImages/icons/html-5.png")} alt="" style={{height:"150px",
+        <Container15 img={<img className = "icon" src={require("./ElementImages/icons/html-5.png")} alt="" style={{height:"150px",
     padding:"20px"}}></img>}/>
-        <Container30 img={<img src={require("./ElementImages/icons/css-3.png")} alt="" style={{height:"150px",
+        <Container15 img={<img className = "icon" src={require("./ElementImages/icons/css-3.png")} alt="" style={{height:"150px",
     padding:"20px"}}></img>}/>
-        <Container30 img={<img src={require("./ElementImages/icons/js.png")} alt="" style={{height:"150px",
+        <Container15 img={<img className = "icon" src={require("./ElementImages/icons/js.png")} alt="" style={{height:"150px",
     padding:"20px"}}></img>}/>
-        <Container30 img={<img src={require("./ElementImages/icons/physics.png")} alt="" style={{height:"150px",
+        <Container15 img={<img className = "icon" src={require("./ElementImages/icons/physics.png")} alt="" style={{height:"150px",
     padding:"20px"}}></img>}/>
-        <Container30 img={<img src={require("./ElementImages/icons/python.png")} alt="" style={{height:"150px",
+        <Container15 img={<img className = "icon" src={require("./ElementImages/icons/python.png")} alt="" style={{height:"150px",
     padding:"20px"}}></img>}/>
-            <Container30 img={<img src={require("./ElementImages/icons/java.png")} alt="" style={{height:"150px",
+        <Container15 img={<img className = "icon" src={require("./ElementImages/icons/java.png")} alt="" style={{height:"150px",
     padding:"20px"}}></img>}/>
 </div>
 
 /*items*/
 const rightCardText = 
     <div>
-        <h1 style={{marginBottom:"20px", marginTop:"40px", fontFamily:"Syncopate", textAlign:"center"}}>
+        <h1 className="titleSub" style={{marginBottom:"20px", marginTop:"40px", fontFamily:"Syncopate", textAlign:"center", fontSize:"40px"}}>
             PYTHON <br></br> PROJECTS
         </h1>
         <Container40 img={""} text={brickBreaker}/>
-        <Container30 img={""} text={SnakeGame}/> 
+        <Container40 img={""} text={SnakeGame}/> 
     </div>
 
 const leftCardText = 
     <div>
-        <h1 style={{fontFamily:"Syncopate", padding:"20px", textAlign:"center", marginTop:"40px"}}>
+        <h1 className="titleSub" style={{fontFamily:"Syncopate", padding:"20px", textAlign:"center", marginTop:"40px", fontSize:"40px"}}>
             WEB PROJECTS
         </h1>   
         <Container40Left img={juliaSet} text={fractals}/>
@@ -191,14 +188,14 @@ export default function Projects(){
             <h1 className="titleImportant" style={{textAlign:"center", marginBottom:"40px"}}>
                 MY PROJECTS
             </h1>
-            <div style={{display:"flex", justifyContent:"space-around", margin:"50px", flexWrap:"wrap"}}>
+            <div className="projsWrap" style={{display:"flex", justifyContent:"space-around", margin:"50px"}}>
                 {<Container30 img={""} text={leftCardText}/>}
                 {<Container30 img={""} text={rightCardText}/>}
             </div>
-            <h1 style={{fontFamily:"Syncopate", padding:"0px", textAlign:"center", marginTop:"40px", fontSize:"70px"}}>
+            <h1 style={{fontFamily:"Syncopate", padding:"0px", textAlign:"center", marginTop:"40px", fontSize:"40px"}}>
                     SKILLS DEVELOPED
             </h1>
-            <div style={{display:"flex", justifyContent:"center", marginRight:"200px", marginLeft:"200px", marginBottom:"100px"}}>
+            <div className="skills" style={{display:"flex", justifyContent:"center", marginRight:"200px", marginLeft:"200px", marginBottom:"100px", padding:"50px"}}>
                 {<Container30 img={""} text={skills}/>}
             </div>  
         </div>

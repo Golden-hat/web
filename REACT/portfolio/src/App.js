@@ -9,7 +9,6 @@ function App() {
 		<div className = "App">
 			<div style={{background: `linear-gradient(to bottom, rgba(255,255,255,0) 40%, 
 				rgba(255,255,255,1)), url(${require("./Elements/ElementImages/Sky.jpg")})`,
-				BackgroundSize: "100vh",
 				MarginBottom: "50px"}}>
 				<Header/>
 				<AboutMe/>
