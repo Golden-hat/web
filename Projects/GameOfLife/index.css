@@ -84,7 +84,7 @@ canvas{
     transition: 0.2s all ease;
     color:white;
 }
-.Run:hover{
+.Run:hover {
     cursor: pointer;
     transition:cubic-bezier(1, 0, 0, 1);
     background-color: rgb(255, 166, 0);
