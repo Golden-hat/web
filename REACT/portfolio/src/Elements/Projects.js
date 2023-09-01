@@ -188,7 +188,7 @@ export default function Projects(){
             <h1 className="titleImportant" style={{textAlign:"center", marginBottom:"40px"}}>
                 MY PROJECTS
             </h1>
-            <div className="projsWrap" style={{display:"flex", justifyContent:"space-around", margin:"50px"}}>
+            <div className="projsWrap" style={{display:"flex", justifyContent:"space-around"}}>
                 {<Container30 img={""} text={leftCardText}/>}
                 {<Container30 img={""} text={rightCardText}/>}
             </div>
