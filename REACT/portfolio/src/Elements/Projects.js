@@ -2,7 +2,7 @@ import React from "react"
 import Container40 from "./Container40px.js"
 import Container30 from "./Container30px.js"
 import Container40Left from "./Container40pxLeft.js"
-import MathJax from 'react-mathjax'
+import MathJax from 'mathjax'
 
 /*info*/
 const SnakeGame=
