@@ -1,38 +1,79 @@
-.App {
+body{
+  background-color: #c9daff;
+  margin: 0px;
+}
+
+.Main_Title{
+  margin: 50px;
   text-align: center;
+  font-size: 140px;
+  padding: 20px;
+  font-weight: 1600;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Main_Title_Tasks{
+  text-align: center;
+  font-size: 70px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  .DontHaveAcc{
+    font-size: 15px;
+  }
+  .RegHere{
+    font-size: 15px;
+  }
+  .log-in{
+    font-size: 20px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+@media (max-width: 800px){
+  .Main_Title{font-size: 70px;}
+  .Main_Title_Tasks{font-size: 50px;}
+  .logContainer{
+    margin-left: 40px !important;
+    margin-right: 40px !important;
+  }
+  .containerSign{padding: 30px !important;}
+}
+
+@media (max-width: 330px) {
+  .Main_Title{font-size: 40px; margin: 10px;}
+  .logContainer{
+    text-align: center; 
+    margin:auto !important;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+}
+
+.SignUpButtonDiv{
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.SignUpButton{
+  margin-top: 30px;
+  font-size: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+  border-radius: 12px;
+  font-family:'Times New Roman', Times, serif;
+  font-weight: bolder;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width:1300px){
+  .TaskPage{
+    flex-wrap: wrap !important;
+    padding-top: 0px !important;
   }
-  to {
-    transform: rotate(360deg);
+
+  .TaskPage > *{
+    margin-bottom: 20px;
   }
 }
