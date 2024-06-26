@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const dotenv = require('dotenv')
 var instance = null;
 
@@ -8,8 +8,8 @@ dotenv.config()
 const connection = mysql.createConnection({
     host: '127.0.0.1',
     user: 'root',
-    password:'my-secret-pw',
-    database: 'sys',
+    password:'secret',
+    database: 'first_schema',
     port:'3306' 
 })
 
@@ -59,10 +59,10 @@ class DBService {
         }
     }
 
-    insertUser(id, name, surname, age, email, password){
+    insertUser(id, name, surname, birth, email, password){
         try{
-            const query = `INSERT INTO USER(id, name, surname, age, email, password)
-            VALUES (${id}, '${name}', '${surname}', ${age}, '${email}', '${password}')` 
+            const query = `INSERT INTO USER(id, name, surname, birth, email, password)
+            VALUES (${id}, '${name}', '${surname}', ${birth}, '${email}', '${password}')` 
             connection.query(query, (err, result) =>{
                 if(err) throw new Error(err.message)
                 else{
@@ -92,9 +92,5 @@ class DBService {
 }
 
 const db = DBService.getDBServiceInstance()
-const result = db.getUser("Blanca");
+db.insertUser(0,'yassin','pellicer',null,"yassinpellicerlamla@gmail.com","holaquetal");
 
-result.then(data => console.log(data[0].name))
-.catch(err => console.log(err))
-
-db.deleteUser(1, 'yassinpellicerlamla@gmail.com')
