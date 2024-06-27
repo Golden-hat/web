@@ -28,14 +28,19 @@ body{
   }
 }
 
-@media (max-width: 800px){
+@media (max-width: 600px){
   .Main_Title{font-size: 70px;}
   .Main_Title_Tasks{font-size: 50px;}
   .logContainer{
     margin-left: 40px !important;
     margin-right: 40px !important;
   }
-  .containerSign{padding: 30px !important;}
+  .containerSign{
+    padding: 30px !important;
+    width: auto !important;
+  }
+
+    
 }
 
 @media (max-width: 330px) {
