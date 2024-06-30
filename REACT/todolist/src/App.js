@@ -1,7 +1,7 @@
 import './App.css'
-import Login from './Items/Login'
-import SignIn from './Items/SignIn'
-import Tasks from './Items/Tasks.js'
+import Login from './Items/login.js'
+import SignIn from './Items/signin.js'
+import Tasks from './Items/tasks.js'
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
