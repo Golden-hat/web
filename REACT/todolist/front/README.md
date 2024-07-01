@@ -70,3 +70,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 docker exec -it mysql-container mysql -u root -p
+
+curl -X POST http://localhost:3001/user/add -H "Content-Type: application/json" -d '{   
+  "id": 3,
+  "name": "Johnny",
+  "surname": "Silverhand",
+  "birth": "1990-01-02",
+  "username": "John",
+  "email": "john.silverhand@example.com",
+  "password": "V"
+}'
+
+

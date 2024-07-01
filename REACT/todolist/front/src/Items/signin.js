@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
@@ -9,8 +9,7 @@ const SignIn = () => {
     username: '',
     email: '',
     password: '',
-    repeatPassword: '',
-    dateOfBirth: ''
+    birth: ''
   });
 
   // Handle input change
@@ -22,30 +21,55 @@ const SignIn = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    try {
+      const response = await fetch('http://localhost:3001/user/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log('Success:', data);
+      setFormData(() => ({
+        name: '',
+        surname: '',
+        username: '',
+        email: '',
+        password: '',
+        birth: '' 
+      })
+    );
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
+    <div style={{display:"flow", justifyContent:"center", alignItems:"center"}}>
     <form
-      id="form"
-      className="containerSign"
-      style={{
+        id="form"
+        className="containerSign"
+        style={{
         margin: "auto",
+        marginTop:"60px",
         padding: "40px",
         borderRadius: "50px",
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: `translate(-50%, -50%)`,
         borderColor: "black",
+        justifyContent: "center",
+        alignItems:"center",
         boxSizing: "border-box",
         border: "1px solid black",
-        flexWrap: "wrap",
         backgroundColor: "white",
         width: "600px",
-      }}
+        }}
     >
       <h1 className="log-in" style={{ textAlign: "left", marginBottom: "20px" }}>
         Sign Up:
@@ -126,8 +150,8 @@ const SignIn = () => {
       <p style={{ textAlign: "left", marginBottom: "0px" }}>Repeat Password:</p>
       <input
         type="password"
-        name="repeatPassword" // Added name attribute
-        value={formData.repeatPassword}
+        name="password" // Added name attribute
+        value={formData.password}
         onChange={handleChange}
         style={{
           width: "100%",
@@ -140,8 +164,8 @@ const SignIn = () => {
       <p style={{ textAlign: "left", marginBottom: "0px" }}>Date of Birth:</p>
       <input
         type="date"
-        name="dateOfBirth" // Added name attribute
-        value={formData.dateOfBirth}
+        name="birth" // Added name attribute
+        value={formData.birth}
         onChange={handleChange}
         style={{
           width: "100%",
@@ -180,6 +204,7 @@ const SignIn = () => {
         </Link>
       </div>
     </form>
+    </div>
   );
 };
 

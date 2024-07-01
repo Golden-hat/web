@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import AddNewTask from "./task.js";
-import Tasklist from "./tasks.js";
+import Tasklist from "./task.js";
 
 const text=
 <div className="containerSign" style={{padding:"40px"}}>
