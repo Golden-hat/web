@@ -2,96 +2,80 @@ import React from "react"
 import { Link } from "react-router-dom";
 import AddNewTask from "./task.js";
 import Tasklist from "./task.js";
+import { useLocation } from 'react-router-dom';
 
-const text=
-<div className="containerSign" style={{padding:"40px"}}>
-    <h1 className="log-in" style={{textAlign:"left", margin: "0px"}}>
-    </h1>
-    <p style={{textAlign:"left", marginBottom:"0px"}}>
-        Name:
-    </p>
-    <input type="text" style={{
-        borderRadius: "8px",
-        width:"100%",
-        padding:"5px",
-        borderColor: "black", 
-        boxSizing: "border-box"}}>
-    </input>   
-    <p style={{textAlign:"left", marginBottom:"0px"}}>
-        Surname:
-    </p>
-    <input type="text" style={{
-        borderRadius: "8px",
-        width:"100%",
-        padding:"5px",
-        borderColor: "black", 
-        boxSizing: "border-box"}}>
-    </input>   
-    <p style={{textAlign:"left", marginBottom:"0px"}}>
-        Username:
-    </p>
-    <input type="text" style={{
-        borderRadius: "8px",
-        width:"100%",
-        padding:"5px",
-        borderColor: "black", 
-        boxSizing: "border-box"}}>
-    </input>   
-    <p style={{textAlign:"left", marginBottom:"0px"}}>
-        E-mail:
-    </p>
-    <input type="text" style={{
-        width:"100%",
-        borderRadius: "8px",
-        padding:"5px",
-        borderColor: "black", 
-        boxSizing: "border-box"}}>
-    </input>
-    <p style={{textAlign:"left", marginBottom:"0px"}}>
-        Password:
-    </p>
-    <input type="password" style={{
-        width:"100%",
-        borderRadius: "8px",
-        padding:"5px",
-        borderColor: "black", 
-        boxSizing: "border-box"}}>
-    </input>
-    <p style={{textAlign:"left", marginBottom:"0px"}}>
-        Repeat Password:
-    </p>
-    <input type="password" style={{
-        width:"100%",
-        borderRadius: "8px",
-        padding:"5px",
-        borderColor: "black", 
-        boxSizing: "border-box"}}>
-    </input>
-    <div className="SignUpButtonDiv">
-        <button className="SignUpButton">Sign Up</button>
-    </div>
-    <p className="DontHaveAcc"style={{textAlign:"center", marginLeft:"40px", marginRight:"40px", marginBottom:"0px", marginTop:"40px"}}>
-       Already have an account? 
-    </p>
-    <div  style={{marginBottom:"40px", marginTop:"10px", textAlign:"center"}}>
-        <Link to="/" className="RegHere">Register Here!</Link>
-    </div>
-</div>
-
-export default function Login(){
-    return(
-        <div>
-            <h1 className='Main_Title_Tasks'> Welcome, @.</h1>
-        <div className="TaskPage" style={{display:"flex", justifyContent:"space-around"}}>
-            <div style={{width:"500px"}}>
-                <h1 style={{fontSize:"40px", textAlign:"center"}}> Add new task: </h1>
-                <AddNewTask></AddNewTask>
+const not_logged =
+  <div>
+    <h1 className='Main_Title_Tasks'> Looks like you aren't logged in yet...</h1>
+    <div className="TaskPage" style={{ display: "flex", justifyContent: "space-around" }}>
+      <div style={{ width: "500px" }}>
+        <h1 style={{ fontSize: "20px", textAlign: "center" }}> Please log in or register if you haven't yet</h1>
+        <div style={{ display: "flex" }}>
+          <div>
+            <p className="DontHaveAcc" style={{ textAlign: "center", marginLeft: "40px", marginRight: "40px", marginBottom: "0px", marginTop: "40px" }}>
+              Don't have an account yet?
+            </p>
+            <div style={{ marginBottom: "40px", marginTop: "10px", textAlign: "center" }}>
+              <Link to="/SignIn" className="RegHere">Register Here!</Link>
             </div>
-            <div style={{display:"flex", flexDirection:"column", justifyContent:"space-around", width:"800px"}}>
-                <h1 style={{fontSize:"40px", textAlign:"center"}}> Current Tasks:</h1>
-                <Tasklist></Tasklist>
+          </div>
+          <div>
+            <p
+              className="DontHaveAcc"
+              style={{
+                textAlign: "center",
+                marginLeft: "40px",
+                marginRight: "40px",
+                marginBottom: "0px",
+                marginTop: "40px",
+              }}
+            >
+              Already have an account?
+            </p>
+            <div
+              style={{
+                marginBottom: "40px",
+                marginTop: "10px",
+                textAlign: "center",
+              }}
+            >
+              <Link to="/" className="RegHere">
+                Log In!
+              </Link>
             </div>
-        </div>   
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  </div>
+
+const Tasks = () => {
+  const location = useLocation();
+  const user = location.state || {};
+  
+  if (Object.keys(user).length == 0) {
+    var selection = not_logged;
+  }
+  else {
+    selection =
+      <div>
+        <h1 className='Main_Title_Tasks'> Welcome, {user[0].name}.</h1>
+        <div className="TaskPage" style={{ display: "flex", justifyContent: "space-around" }}>
+          <div style={{ width: "500px" }}>
+            <h1 style={{ fontSize: "40px", textAlign: "center" }}> Add new task: </h1>
+            <AddNewTask></AddNewTask>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-around", width: "800px" }}>
+            <h1 style={{ fontSize: "40px", textAlign: "center" }}> Current Tasks:</h1>
+            <Tasklist></Tasklist>
+          </div>
+        </div>
+      </div>
+  }
+  
+  return (
+    selection
+  )
 }
+
+export default Tasks

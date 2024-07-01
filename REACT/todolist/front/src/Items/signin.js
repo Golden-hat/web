@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
   // Initializing formData with keys for all form fields
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
@@ -25,29 +28,42 @@ const SignIn = () => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     try {
-      const response = await fetch('http://localhost:3001/user/add', {
+      /* We check for existing mail */
+      var response = await fetch('http://localhost:3001/user/used', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
       });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+      var data = await response.json();
+      if (!data.found) {
+        /* We validate the input */
+        response = await fetch('http://localhost:3001/user/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+        });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        data = await response.json();
+        console.log('Success:', data);
+        alert("New user has been correctly registered!")
+        navigate('/');
       }
-      const data = await response.json();
-      console.log('Success:', data);
-      setFormData(() => ({
-        name: '',
-        surname: '',
-        username: '',
-        email: '',
-        password: '',
-        birth: '' 
-      })
-    );
-
+      else {
+        alert("These credentials are already in use. Please choose a different email address.")
+        setFormData(() => ({
+            email: '',
+            password: '',
+          })
+        );
+      }
     } catch (error) {
+      alert("Invalid field(s) - please check your input.")
       console.error('Error:', error);
     }
   };

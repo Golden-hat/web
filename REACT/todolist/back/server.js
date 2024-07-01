@@ -88,6 +88,27 @@ app.post("/user/verify", (req, res)=> {
       console.log(`User with email '${email}' has been found`)
       console.log(data)
       if(data.length == 0){
+        res.json({ message: 'User NOT found.', found: false, user: null}) 
+      }
+      else{
+        res.json({ message: 'User found!', found: true, user: data})
+      }
+    }
+  })
+})
+
+app.post("/user/used", (req, res)=> {
+  const { email} = req.body
+  if (!email) {
+    return res.status(400).json({ error: 'Missing field is required.' });
+  }
+  const query = `SELECT * FROM user WHERE email = ?`
+  connection.query(query, [email], (err, data) => {
+    if (err) res.json(err)
+    else {
+      console.log(`User with email '${email}' has been found`)
+      console.log(data)
+      if(data.length == 0){
         res.json({ message: 'User NOT found.', found: false}) 
       }
       else{

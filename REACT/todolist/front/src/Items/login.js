@@ -34,12 +34,13 @@ const Login = () => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
+      
       const data = await response.json();
       if (data.found) {
-        navigate('/Tasks');
+        navigate('/Tasks', { state: data.user });
       }
       else {
+        alert("Invalid e-mail or password. Please try again or make sure you have previously signed up.")
         setFormData(() => ({
             email: '',
             password: '',
@@ -48,6 +49,7 @@ const Login = () => {
       }
 
     } catch (error) {
+      alert("Invalid e-mail or password. Please try again or make sure you have previously signed up.")
       console.error('Error:', error);
     }
   };
