@@ -59,14 +59,25 @@ const Tasks = () => {
   else {
     selection =
       <div>
-        <h1 className='Main_Title_Tasks'> Welcome, {user[0].name}.</h1>
+        <div style ={{
+          backgroundColor:"rgb(105, 162, 255)",
+          color:"white",
+          fontStyle: "italic",
+          justifyContent:"space-around",
+          display: "flex",
+          marginBottom: "60px"
+        }}>
+          <h1 className='Main_Title_Tasks' style={{marginTop:"20px", marginBottom:"20px"}}> Welcome, {user[0].name}.</h1>
+          <div className="SignUpButtonDiv" style={{ alignContent:"center", marginTop:"7px"}}>
+            <button className="SignUpButton">Log out</button>
+          </div>
+        </div>
+
         <div className="TaskPage" style={{ display: "flex", justifyContent: "space-around" }}>
           <div style={{ width: "500px" }}>
-            <h1 style={{ fontSize: "40px", textAlign: "center" }}> Add new task: </h1>
             <AddNewTask></AddNewTask>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-around", width: "800px" }}>
-            <h1 style={{ fontSize: "40px", textAlign: "center" }}> Current Tasks:</h1>
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-around", width: "1000px" }}>
             <Tasklist></Tasklist>
           </div>
         </div>

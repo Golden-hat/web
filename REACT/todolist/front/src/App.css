@@ -39,8 +39,6 @@ body{
     padding: 30px !important;
     width: auto !important;
   }
-
-    
 }
 
 @media (max-width: 330px) {
@@ -59,7 +57,6 @@ body{
 }
 
 .SignUpButton{
-  margin-top: 30px;
   font-size: 16px;
   padding-left: 20px;
   padding-right: 20px;
@@ -81,4 +78,18 @@ body{
   .TaskPage > *{
     margin-bottom: 20px;
   }
+}
+
+.ql-toolbar.ql-snow {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  padding: 8px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.ql-container {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
