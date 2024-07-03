@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import AddNewTask from "./task.js";
-import Tasklist from "./task.js";
+import Tasklist from "./tasklist.js";
 import { useLocation } from 'react-router-dom';
 
 const not_logged =
@@ -62,22 +62,20 @@ const Tasks = () => {
         <div style ={{
           backgroundColor:"rgb(105, 162, 255)",
           color:"white",
-          fontStyle: "italic",
-          justifyContent:"space-around",
+          justifyContent:"space-between",
           display: "flex",
-          marginBottom: "60px"
         }}>
-          <h1 className='Main_Title_Tasks' style={{marginTop:"20px", marginBottom:"20px"}}> Welcome, {user[0].name}.</h1>
+          <h1 className='Main_Title_Tasks' style={{marginLeft:"80px", marginTop:"20px", marginBottom:"20px"}}> Welcome, {user[0].name}.</h1>
           <div className="SignUpButtonDiv" style={{ alignContent:"center", marginTop:"7px"}}>
-            <button className="SignUpButton">Log out</button>
+            <button className="SignUpButton" style={{marginRight:"80px", marginTop:"20px", marginBottom:"20px"}}>Log out</button>
           </div>
         </div>
 
-        <div className="TaskPage" style={{ display: "flex", justifyContent: "space-around" }}>
-          <div style={{ width: "500px" }}>
+        <div className="TaskPage" style={{ display:"flex", justifyContent:"space-between", padding:"40px"}}>
+          <div style={{width: "800px", height:"603px", margin:"40px", boxSizing:" border-box"}}>
             <AddNewTask></AddNewTask>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-around", width: "1000px" }}>
+          <div style={{ flexDirection: "column", justifyContent: "space-around", maxWidth: "1000px", margin:"40px" }}>
             <Tasklist></Tasklist>
           </div>
         </div>

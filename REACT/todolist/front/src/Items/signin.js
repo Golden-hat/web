@@ -189,6 +189,7 @@ const SignIn = () => {
           padding: "5px",
           borderColor: "black",
           boxSizing: "border-box",
+          marginBottom:"30px"
         }}
       />
       <div className="SignUpButtonDiv">
