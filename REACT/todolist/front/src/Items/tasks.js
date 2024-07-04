@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom";
-import AddNewTask from "./task.js";
+import AddNewTask from "./add_task.js";
 import Tasklist from "./tasklist.js";
 import { useLocation } from 'react-router-dom';
 
@@ -72,10 +72,10 @@ const Tasks = () => {
         </div>
 
         <div className="TaskPage" style={{ display:"flex", justifyContent:"space-between", padding:"40px"}}>
-          <div style={{width: "800px", height:"603px", margin:"40px", boxSizing:" border-box"}}>
+          <div style={{ margin:"40px", boxSizing:" border-box", maxHeight:"600px", width:"1200px"}}>
             <AddNewTask></AddNewTask>
           </div>
-          <div style={{ flexDirection: "column", justifyContent: "space-around", maxWidth: "1000px", margin:"40px" }}>
+          <div style={{ flexDirection: "column", justifyContent: "space-around", maxHeight:"600px", margin:"40px" }}>
             <Tasklist></Tasklist>
           </div>
         </div>

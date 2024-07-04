@@ -4,7 +4,8 @@ import { useEffect, useRef } from 'react';
 const Tasks = () => {
 
   const dateInputRef = useRef(null);
-  const initialValue = '2024-07-04';
+  console.log(dateInputRef)
+  const initialValue = "2024-10-25";
 
   useEffect(() => {
     const dateInput = dateInputRef.current;
@@ -31,7 +32,8 @@ const Tasks = () => {
       border: "1px solid black",
       flexWrap: "wrap",
       backgroundColor: "white",
-      margin:"20px"
+      margin:"20px",
+      width:"auto"
     }}>
       <div className="containerSign" style={{ padding: "40px", paddingTop: "10px" }}>
         <p style={{ textAlign: "left", marginTop: "30px", marginBottom: "10px", fontSize:"30px", fontWeight:"bold" }}>
@@ -40,7 +42,7 @@ const Tasks = () => {
         <p style={{ textAlign: "left", marginTop: "20px", marginBottom: "10px" }}>
 
         </p>
-        <p style={{ textAlign: "left", marginBottom: "10px" }}>
+        <p style={{ textAlign: "left", marginBottom: "10px"}}>
           Very important!Very important!Very important!Very important!Very important!Very important!Very important!Very important!Very important!Very important!Very important!Very important!Very important!Very important!
         </p>
         <p style={{ textAlign: "left", marginBottom: "10px" }}>
@@ -53,7 +55,7 @@ const Tasks = () => {
           marginBottom: "30px",
           borderColor: "black",
           boxSizing: "border-box"
-        }} value="2024-07-04">
+        }}>
         </input>
         <div className="SignUpButtonDiv" style={{position:"relative", display:"flex", justifyContent:"space-between"}}>
           <button className="SignUpButton" style = {{ backgroundColor:"rgb(145, 255, 122)"}}>Complete task</button>

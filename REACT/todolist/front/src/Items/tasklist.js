@@ -19,7 +19,7 @@ const Tasks = () => {
       paddingTop: "10px",
       height:"603px",
       overflowX:"hidden",
-      overflowY:"scroll",
+      overflowY:"auto",
       boxSizing:" border-box",
       scrollbars:"right"
     }}>
@@ -29,6 +29,7 @@ const Tasks = () => {
       <Listed_task></Listed_task>
       <Listed_task></Listed_task>
       <Listed_task></Listed_task>
+      
     </div>
   </div>
   )

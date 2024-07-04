@@ -86,9 +86,16 @@ body{
   padding: 8px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  white-space: wrap;
+  position: relative;
+
 }
 
 .ql-container {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.ql-editor {
+  max-height: 70px;
 }
