@@ -118,7 +118,7 @@ app.post("/user/used", (req, res)=> {
   })
 })
 
-app.get("/user/tasks/:id", (req, res)=> {
+app.get("/user/tasks/task/:id", (req, res)=> {
   const { id } = req.body
   if (!id) {
     return res.status(400).json({ error: 'Missing field is required.' });
@@ -135,12 +135,12 @@ app.get("/user/tasks/:id", (req, res)=> {
   })
 })
 
-app.post("/user/add", (req, res)=> {
+app.post("/user/tasks/add", (req, res)=> {
   const {title, description, due} = req.body
   if (!title || !description || !due) {
     return res.status(400).json({ error: 'Missing field is required.' });
   }
-  const query = `INSERT INTO tasks(title, description, due, completed) VALUES (?, ?, ?, false)`
+  const query = `INSERT INTO tasks(title, description, due, completed, creation_date) VALUES (?, ?, ?, false, CURDATE())`
   connection.query(query, [title, description, due], (err, data) => {
     if (err) res.json(err)
     else {

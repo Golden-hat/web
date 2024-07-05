@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import AddNewTask from "./add_task.js";
 import Tasklist from "./tasklist.js";
@@ -72,10 +72,10 @@ const Tasks = () => {
         </div>
 
         <div className="TaskPage" style={{ display:"flex", justifyContent:"space-between", padding:"40px"}}>
-          <div style={{ margin:"40px", boxSizing:" border-box", maxHeight:"600px", width:"1200px"}}>
-            <AddNewTask></AddNewTask>
+          <div style={{ margin:"40px", boxSizing:" border-box", height:"600px", width:"600px"}}>
+            <AddNewTask id={user.id}></AddNewTask>
           </div>
-          <div style={{ flexDirection: "column", justifyContent: "space-around", maxHeight:"600px", margin:"40px" }}>
+          <div style={{ flexDirection: "column", justifyContent: "space-around", height:"600px", margin:"40px" }}>
             <Tasklist></Tasklist>
           </div>
         </div>
