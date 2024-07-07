@@ -2,14 +2,13 @@ import React from "react"
 import Quill from 'quill';
 import 'react-quill/dist/quill.snow.css';
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from 'react-router-dom';
 
-const Task = () => {
+const Task = (props) => {
   const [formData, setFormData] = useState({
     id: '',
     title: '',
     description: '',
-    date: ''
+    due: ''
   }); 
 
   const handleChange = (e) => {
@@ -35,20 +34,19 @@ const Task = () => {
   
   const extractContents = () => {
     if (quill) {
-      const delta = quill.getContents(); // Get the Delta format
+      const delta = quill.root.innerHTML // Get the Delta format
       const plainText = quill.getText(); // Get plain text
 
-      console.log('Delta:', delta);
+      console.log('Delta:', JSON.stringify(delta));
       console.log('Plain Text:', plainText);
 
       formData.description = delta
-      formData.id = 
+      formData.id = props.id;
 
       console.log(formData)
     }
   };
 
-  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     extractContents();
     e.preventDefault();
@@ -63,7 +61,21 @@ const Task = () => {
         body: JSON.stringify(formData)
       });
       var data = await response.json();
-      console.log(data)
+  
+      if (data.err != "") {
+        alert("Invalid entries. Please check.")
+      }
+      else {
+        alert("Task added successfully.")
+        setFormData({
+          id: '',
+          title: '',
+          description: '',
+          due: ''
+        })
+        document.getElementById("form").reset();
+        quill.setContents([{ insert: '\n' }]);
+      }
 
     } catch (error) {
       alert("Invalid field(s) - please check your input.")
@@ -80,48 +92,52 @@ const Task = () => {
       flexWrap: "wrap",
       backgroundColor: "white"
     }}>
-      <div className="containerSign" style={{ padding: "40px", paddingTop: "10px" }}>
-        <p style={{ textAlign: "left", marginTop: "30px", marginBottom: "10px", fontSize:"30px", fontWeight:"bold" }}>
-          Add New Task:
-        </p>
-        <p style={{ textAlign: "left", marginTop: "20px", marginBottom: "10px" }}>
-          Title:
-        </p>
-        <input
-          name="title"
-          value={formData.name} 
-          onChange={handleChange}
-          type="text" style={{
-          borderRadius: "8px",
-          width: "100%",
-          padding: "5px",
-          borderColor: "black",
-          boxSizing: "border-box"
-        }}>
-        </input>
-        <p style={{ textAlign: "left", marginBottom: "10px" }}>
-          Description:
-        </p>
-        <div ref={quillRef} style={{ height: '200px' }} />
-        <p style={{ textAlign: "left", marginBottom: "10px" }}>
-          Due to...
-        </p>
-        <input type="date" 
-          name="date"
-          onChange={handleChange}
-          style={{
-          borderRadius: "8px",
-          width: "100%",
-          padding: "5px",
-          marginBottom:"30px",
-          borderColor: "black",
-          boxSizing: "border-box"
-        }}>
-        </input>
-        <div className="SignUpButtonDiv">
-          <button className="SignUpButton" onClick={extractContents} >Upload Task</button>
+      <form id="form">
+        <div className="containerSign" style={{ padding: "40px", paddingTop: "10px" }}>
+          <p style={{ textAlign: "left", marginTop: "30px", marginBottom: "10px", fontSize: "30px", fontWeight: "bold" }}>
+            Add New Task:
+          </p>
+
+          <p style={{ textAlign: "left", marginTop: "20px", marginBottom: "10px" }}>
+            Title:
+          </p>
+          <input
+            name="title"
+            value={formData.name}
+            onChange={handleChange}
+            type="text" style={{
+              borderRadius: "8px",
+              width: "100%",
+              padding: "5px",
+              borderColor: "black",
+              boxSizing: "border-box"
+            }}>
+          </input>
+          <p style={{ textAlign: "left", marginBottom: "10px" }}>
+            Description:
+          </p>
+          <div ref={quillRef} style={{ height: '200px' }} />
+          <p style={{ textAlign: "left", marginBottom: "10px" }}>
+            Due to...
+          </p>
+          <input type="date"
+            name="due"
+            onChange={handleChange}
+            style={{
+              borderRadius: "8px",
+              width: "100%",
+              padding: "5px",
+              marginBottom: "30px",
+              borderColor: "black",
+              boxSizing: "border-box"
+            }}>
+          </input>
+          <div className="SignUpButtonDiv">
+            <button className="SignUpButton" onClick={handleSubmit} >Upload Task</button>
+          </div>
         </div>
-      </div>
+      </form>
+      
     </div>
   )
 }

@@ -91,6 +91,18 @@ body{
 
 }
 
+.ql-bubble {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  padding: 8px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  white-space: wrap;
+  position: relative;
+
+}
+
 .ql-container {
   border-bottom-left-radius: 10px;
   max-height: 180px;

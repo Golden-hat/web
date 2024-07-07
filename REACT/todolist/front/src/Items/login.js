@@ -41,11 +41,12 @@ const Login = () => {
       }
       else {
         alert("Invalid e-mail or password. Please try again or make sure you have previously signed up.")
-        setFormData(() => ({
+        setFormData(({
             email: '',
             password: '',
           })
         );
+        document.getElementById("form").reset();
       }
 
     } catch (error) {

@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'secret',
-  database: 'todo_schema',
+  database: 'todo-schema',
   port: '3306'
 })
 
@@ -118,11 +118,8 @@ app.post("/user/used", (req, res)=> {
   })
 })
 
-app.get("/user/tasks/task/:id", (req, res)=> {
-  const { id } = req.body
-  if (!id) {
-    return res.status(400).json({ error: 'Missing field is required.' });
-  }
+app.get("/user/get/tasks/:id", (req, res)=> {
+  id = req.params.id;
   const query = `SELECT * FROM tasks WHERE id = ?`
   connection.query(query, [id], (err, data) => {
     if (err) res.json(err)
@@ -136,16 +133,16 @@ app.get("/user/tasks/task/:id", (req, res)=> {
 })
 
 app.post("/user/tasks/add", (req, res)=> {
-  const {title, description, due} = req.body
+  const {id, title, description, due} = req.body
+  console.log(req.body);
   if (!title || !description || !due) {
-    return res.status(400).json({ error: 'Missing field is required.' });
+    return res.status(400).json({ err: 'Missing field is required.' });
   }
-  const query = `INSERT INTO tasks(title, description, due, completed, creation_date) VALUES (?, ?, ?, false, CURDATE())`
-  connection.query(query, [title, description, due], (err, data) => {
+  const query = `INSERT INTO tasks(id, title, description, due, completed, creation_date) VALUES (?, ?, ?, ?, false, CURDATE())`
+  connection.query(query, [id, title, description, due], (err, data) => {
     if (err) res.json(err)
     else {
-      console.log(`The task '${title}' has been successfully added to the DB`)
-      res.json({ message: 'Task has been successfully added to the DB' });
+      res.json({ message: 'Task has been successfully added to the DB', err: '' });
     }
   })
 })
