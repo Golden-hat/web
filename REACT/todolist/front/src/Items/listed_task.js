@@ -19,6 +19,7 @@ const Tasks = (props) => {
         theme: 'bubble',
       });
       setQuill(quillInstance);
+      quillInstance.disable(true);
       quillInstance.root.innerHTML = props.description;
     }
   }, [quill]);

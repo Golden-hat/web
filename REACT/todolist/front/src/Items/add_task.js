@@ -50,6 +50,8 @@ const Task = (props) => {
   const handleSubmit = async (e) => {
     extractContents();
     e.preventDefault();
+    
+    const buttonToTrigger = document.getElementById('fetchButton');
 
     console.log("Form submitted:", formData);
     try {
@@ -76,13 +78,14 @@ const Task = (props) => {
         document.getElementById("form").reset();
         quill.setContents([{ insert: '\n' }]);
       }
+      buttonToTrigger.click(); 
 
     } catch (error) {
       alert("Invalid field(s) - please check your input.")
       console.error('Error:', error);
     }
   };
-
+  
   return (
     <div style={{
       borderRadius: "50px",

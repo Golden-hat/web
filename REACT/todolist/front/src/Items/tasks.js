@@ -41,22 +41,30 @@ const Tasks = () => {
   const user = location.state || {};
   const [taskList, setTaskList] = useState([]);
 
-  useEffect(() => {
-    const fetchTasks = async () => {
-      if (Object.keys(user).length > 0) {
-        try {
-          const response = await fetch(`http://localhost:3001/user/get/tasks/${user[0].id}`);
-          const data = await response.json();
-          setTaskList(data.tasks || []);
-        } catch (error) {
-          console.error('Error:', error);
-        }
+  const fetchTasks = async () => {
+    if (Object.keys(user).length > 0) {
+      try {
+        const response = await fetch(`http://localhost:3001/user/get/tasks/${user[0].id}`);
+        const data = await response.json();
+        setTaskList(data.tasks || []);
+        console.log(data.tasks)
+      } catch (error) {
+        console.error('Error:', error);
       }
-    };
+    }
+  };
 
+  useEffect(() => {
     fetchTasks();
   }, [user]);
 
+  const [count, setCount] = useState(0);
+
+  // Function to force a rerender by updating the state
+  const forceRerender = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+  
   if (Object.keys(user).length === 0) {
     return notLogged;
   }
@@ -109,9 +117,19 @@ const Tasks = () => {
                 scrollbars: "right",
               }}
             >
-              <p style={{ textAlign: "left", marginLeft: "20px", marginTop: "30px", fontSize: "35px", fontWeight: "bold" }}>
-                Pending Tasks:
-              </p>
+              <div style={{display:"flex", justifyContent:"space-between"}}>
+                <p style={{ textAlign: "left", marginBottom:"0px", marginLeft: "20px", marginTop: "20px", fontSize: "35px", fontWeight: "bold" }}>
+                  Pending Tasks:
+                </p>
+                <div>
+                  <button id="fetchButton" className="SignUpButton" style={{padding:"5px", width:"120px", height:"40px", marginRight:"15px", marginTop:"20px"}} onClick={() => {fetchTasks()}}>
+                    Fetch Tasks
+                  </button>
+                  <button id="fetchButton" className="SignUpButton" style={{padding:"5px", width:"200px", height:"40px", marginRight:"15px", marginTop:"20px"}}>
+                    View Completed Tasks
+                  </button>
+                </div>
+              </div>
               <div>
                 {taskList.map((task, index) => (
                   <ListedTask
