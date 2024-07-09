@@ -38,6 +38,29 @@ const Tasks = (props) => {
       };
     }
   }, []);
+  
+  const handleDelete = async (e) => {
+    
+    const buttonToTrigger = document.getElementById('fetchButton');
+
+    console.log("Delete Submitted. ID:", props.inner_id);
+    try {
+      var response = await fetch(`http://localhost:3001/user/tasks/delete/${props.inner_id}`);
+      var data = await response.json();
+      console.log(data)
+  
+      if (data.found === true) {
+        alert("Task removed successfully")
+      }
+      else{
+        alert("An error has occurred")
+      }
+      buttonToTrigger.click(); 
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   var body =
     <div className="containerSign" style={{ padding: "40px", paddingTop: "10px" }}>
@@ -58,7 +81,7 @@ const Tasks = (props) => {
       </input>
       <div className="SignUpButtonDiv" style={{ position: "relative", display: "flex", justifyContent: "space-between" }}>
         <button className="SignUpButton" style={{ marginTop: "20px", backgroundColor: "rgb(145, 255, 122)" }}>Complete task</button>
-        <button className="SignUpButton" style={{ marginTop: "20px", backgroundColor: "rgb(255, 74, 92)" }}>Delete task</button>
+        <button className="SignUpButton" onClick={handleDelete} style={{ marginTop: "20px", backgroundColor: "rgb(255, 74, 92)" }}>Delete task</button>
         <button className="SignUpButton" style={{ marginTop: "20px", backgroundColor: "rgb(138, 142, 255)" }}>Modify task</button>
       </div>
     </div>

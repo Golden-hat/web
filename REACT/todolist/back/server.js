@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'secret',
-  database: 'todo-schema',
+  database: 'todo_schema',
   port: '3306'
 })
 
@@ -131,6 +131,19 @@ app.get("/user/get/tasks/:id", (req, res)=> {
     }
   })
 })
+
+app.get("/user/tasks/delete/:id", (req, res)=> {
+  id = req.params.id;
+  const query = `DELETE FROM tasks WHERE inner_id = ?`
+  connection.query(query, [id], (err, data) => {
+    if (err) res.json(err)
+    else {
+      console.log(data)
+      res.json({found: true}) 
+    }
+  })
+})
+
 
 app.post("/user/tasks/add", (req, res)=> {
   const {id, title, description, due} = req.body

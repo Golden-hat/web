@@ -100,7 +100,7 @@ body{
   border-top-right-radius: 10px;
   white-space: wrap;
   position: relative;
-
+  overflow: auto;
 }
 
 .ql-container {
@@ -111,5 +111,5 @@ body{
 .ql-editor {
   overflow-x: auto;
 
-  width:500px;
+  width:400px;
 }

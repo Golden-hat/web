@@ -57,13 +57,6 @@ const Tasks = () => {
   useEffect(() => {
     fetchTasks();
   }, [user]);
-
-  const [count, setCount] = useState(0);
-
-  // Function to force a rerender by updating the state
-  const forceRerender = () => {
-    setCount(prevCount => prevCount + 1);
-  };
   
   if (Object.keys(user).length === 0) {
     return notLogged;
@@ -118,27 +111,30 @@ const Tasks = () => {
               }}
             >
               <div style={{display:"flex", justifyContent:"space-between"}}>
-                <p style={{ textAlign: "left", marginBottom:"0px", marginLeft: "20px", marginTop: "20px", fontSize: "35px", fontWeight: "bold" }}>
+                <p style={{ textAlign: "left", marginBottom:"25px", marginLeft: "20px", marginTop: "20px", fontSize: "35px", fontWeight: "bold" }}>
                   Pending Tasks:
                 </p>
-                <div>
-                  <button id="fetchButton" className="SignUpButton" style={{padding:"5px", width:"120px", height:"40px", marginRight:"15px", marginTop:"20px"}} onClick={() => {fetchTasks()}}>
-                    Fetch Tasks
+                <div style={{display:"flex"}}>
+                  <button id="fetchButton" className="SignUpButton" style={{padding:"5px", width:"70px", height:"40px", marginRight:"15px", marginTop:"20px"}} onClick={() => {fetchTasks()}}>
+                    Fetch
                   </button>
-                  <button id="fetchButton" className="SignUpButton" style={{padding:"5px", width:"200px", height:"40px", marginRight:"15px", marginTop:"20px"}}>
-                    View Completed Tasks
+                  <button id="fetchButton" className="SignUpButton" style={{padding:"5px", width:"140px", height:"40px", marginRight:"15px", marginTop:"20px", fontSize:"15px"}}>
+                    View Completed
                   </button>
                 </div>
               </div>
               <div>
-                {taskList.map((task, index) => (
+                {taskList.length === 0 ? (
+                  <p style={{ marginLeft: "20px", marginTop: "20px", marginBottom: "20px", fontFamily:"arial", fontSize:"40px"}}>You have no pending tasks.</p>
+                ) : (taskList.map((task, index) => (
                   <ListedTask
-                    key={index}
+                    key={task.inner_id}
                     title={task.title}
                     description={task.description}
                     due={task.due}
+                    inner_id={task.inner_id}
                   />
-                ))}
+                )))}
               </div>
             </div>
           </div>
