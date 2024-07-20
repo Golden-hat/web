@@ -124,8 +124,10 @@ const Tasks = () => {
                 </div>
               </div>
               <div>
-                {taskList.length === 0 ? (
-                  <p style={{ marginLeft: "20px", marginTop: "20px", marginBottom: "20px", fontFamily:"arial", fontSize:"40px"}}>You have no pending tasks.</p>
+                {taskList.length <= 0 ? (
+                  <p style={{ marginLeft: "20px", marginTop: "20px", marginBottom: "20px", fontFamily:"arial", fontSize:"40px"}}>
+                    You have no pending tasks.
+                  </p>
                 ) : (taskList.map((task, index) => (
                   <ListedTask
                     key={task.inner_id}

@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'secret',
-  database: 'todo_schema',
+  database: 'todo-schema',
   port: '3306'
 })
 
@@ -86,6 +86,27 @@ app.post("/user/verify", (req, res)=> {
     if (err) res.json(err)
     else {
       console.log(`User with email '${email}' has been found`)
+      console.log(data)
+      if(data.length == 0){
+        res.json({ message: 'User NOT found.', found: false, user: null}) 
+      }
+      else{
+        res.json({ message: 'User found!', found: true, user: data})
+      }
+    }
+  })
+})
+
+app.post("/user/exists", (req, res)=> {
+  const { id } = req.body
+  if (!id) {
+    return res.status(400).json({ error: 'Missing field is required.' });
+  }
+  const query = `SELECT * FROM user WHERE id = ?`
+  connection.query(query, [ id ], (err, data) => {
+    if (err) res.json(err)
+    else {
+      console.log(`User with id '${id}' has been found`)
       console.log(data)
       if(data.length == 0){
         res.json({ message: 'User NOT found.', found: false, user: null}) 

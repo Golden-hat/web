@@ -12,15 +12,35 @@ const Tasks = (props) => {
   console.log(initialValue)
   const quillRef = useRef(null); // Reference to the editor div
   const [quill, setQuill] = useState(null); // State to hold the Quill instance
+  const [editable, setEditable] = useState(false);
+
+  const edit = () => {
+    const buttonToTrigger = document.getElementById('fetchButton');
+    console.log(editable)
+    setEditable(x => !x)
+    buttonToTrigger.click(); 
+  }
 
   useEffect(() => {
-    if (quillRef.current && !quill) {
-      const quillInstance = new Quill(quillRef.current, {
-        theme: 'bubble',
-      });
-      setQuill(quillInstance);
-      quillInstance.disable(true);
-      quillInstance.root.innerHTML = props.description;
+    if (!editable) {
+      if (quillRef.current && !quill) {
+        const quillInstance = new Quill(quillRef.current, {
+          theme: 'bubble',
+        });
+        setQuill(quillInstance);
+        quillInstance.disable(editable);
+        quillInstance.root.innerHTML = props.description;
+      }
+    }
+    else {
+      if (quillRef.current && !quill) {
+        const quillInstance = new Quill(quillRef.current, {
+          theme: 'snow',
+        });
+        setQuill(quillInstance);
+        quillInstance.disable(editable);
+        quillInstance.root.innerHTML = props.description;
+      } 
     }
   }, [quill]);
 
@@ -82,7 +102,7 @@ const Tasks = (props) => {
       <div className="SignUpButtonDiv" style={{ position: "relative", display: "flex", justifyContent: "space-between" }}>
         <button className="SignUpButton" style={{ marginTop: "20px", backgroundColor: "rgb(145, 255, 122)" }}>Complete task</button>
         <button className="SignUpButton" onClick={handleDelete} style={{ marginTop: "20px", backgroundColor: "rgb(255, 74, 92)" }}>Delete task</button>
-        <button className="SignUpButton" style={{ marginTop: "20px", backgroundColor: "rgb(138, 142, 255)" }}>Modify task</button>
+        <button className="SignUpButton" onClick={edit} style={{ marginTop: "20px", backgroundColor: "rgb(138, 142, 255)" }}>Modify task</button>
       </div>
     </div>
 

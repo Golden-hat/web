@@ -53,9 +53,8 @@ const Task = (props) => {
     
     const buttonToTrigger = document.getElementById('fetchButton');
 
-    console.log("Form submitted:", formData);
     try {
-      var response = await fetch('http://localhost:3001/user/tasks/add', {
+      var response = await fetch('http://localhost:3001/user/exists', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -64,26 +63,42 @@ const Task = (props) => {
       });
       var data = await response.json();
   
-      if (data.err != "") {
-        alert("Invalid entries. Please check.")
+      if (!data.found) {
+        alert("User does NOT exist. Please create your user first.")
       }
       else {
-        alert("Task added successfully.")
-        setFormData({
-          id: '',
-          title: '',
-          description: '',
-          due: ''
-        })
-        document.getElementById("form").reset();
-        quill.setContents([{ insert: '\n' }]);
+        console.log("Form submitted:", formData);
+        try {
+          var response = await fetch('http://localhost:3001/user/tasks/add', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+          var data = await response.json();
+      
+          if (data.err != "") {
+            alert("Invalid entries. Please check.")
+          }
+          else {
+            alert("Task added successfully.")
+            setFormData({
+              id: '',
+              title: '',
+              description: '',
+              due: ''
+            })
+            document.getElementById("form").reset();
+            quill.setContents([{ insert: '\n' }]);
+          }
+        } catch (error) {
+          alert("Invalid field(s) - please check your input.")
+          console.error('Error:', error);
+        }
+        buttonToTrigger.click(); 
       }
-      buttonToTrigger.click(); 
-
-    } catch (error) {
-      alert("Invalid field(s) - please check your input.")
-      console.error('Error:', error);
-    }
+    } catch (error) {} 
   };
   
   return (
