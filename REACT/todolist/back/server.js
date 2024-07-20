@@ -159,3 +159,18 @@ app.post("/user/tasks/add", (req, res)=> {
     }
   })
 })
+
+app.post("/user/tasks/delete/:id", (req, res)=> {
+  const {id, title, description, due} = req.body
+  console.log(req.body);
+  if (!title || !description || !due) {
+    return res.status(400).json({ err: 'Missing field is required.' });
+  }
+  const query = `INSERT INTO tasks(id, title, description, due, completed, creation_date) VALUES (?, ?, ?, ?, false, CURDATE())`
+  connection.query(query, [id, title, description, due], (err, data) => {
+    if (err) res.json(err)
+    else {
+      res.json({ message: 'Task has been successfully added to the DB', err: '' });
+    }
+  })
+})

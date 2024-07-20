@@ -56,8 +56,8 @@ const Tasks = () => {
 
   useEffect(() => {
     fetchTasks();
-  }, [user]);
-  
+  }, []);
+ 
   if (Object.keys(user).length === 0) {
     return notLogged;
   }
@@ -132,6 +132,7 @@ const Tasks = () => {
                     title={task.title}
                     description={task.description}
                     due={task.due}
+                    inner_id={task.inner_id}
                     inner_id={task.inner_id}
                   />
                 )))}
