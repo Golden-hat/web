@@ -133,7 +133,6 @@ const Tasks = () => {
                     description={task.description}
                     due={task.due}
                     inner_id={task.inner_id}
-                    inner_id={task.inner_id}
                   />
                 )))}
               </div>
