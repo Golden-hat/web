@@ -58,7 +58,7 @@ const Tasks = (props) => {
       };
     }
   }, []);
-  
+
   const handleDelete = async (e) => {
     
     const buttonToTrigger = document.getElementById('fetchButton');

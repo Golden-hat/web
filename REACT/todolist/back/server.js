@@ -181,17 +181,65 @@ app.post("/user/tasks/add", (req, res)=> {
   })
 })
 
-app.post("/user/tasks/delete/:id", (req, res)=> {
-  const {id, title, description, due} = req.body
+app.post("/user/tasks/modify", (req, res)=> {
+  const {inner_id, description} = req.body
   console.log(req.body);
   if (!title || !description || !due) {
     return res.status(400).json({ err: 'Missing field is required.' });
   }
-  const query = `INSERT INTO tasks(id, title, description, due, completed, creation_date) VALUES (?, ?, ?, ?, false, CURDATE())`
-  connection.query(query, [id, title, description, due], (err, data) => {
+  const query = `UPDATE tasks SET description = ? WHERE inner_id = ?`
+  connection.query(query, [description, inner_id], (err, data) => {
     if (err) res.json(err)
     else {
-      res.json({ message: 'Task has been successfully added to the DB', err: '' });
+      res.json({ message: 'Task has been successfully modified to the DB', err: '' });
     }
   })
 })
+
+const [formData, setFormData] = useState({
+  inner_id: '',
+  description: '',
+}); 
+
+const extractContents = () => {
+  if (quill) {
+    const delta = quill.root.innerHTML // Get the Delta format
+    const plainText = quill.getText(); // Get plain text
+
+    console.log('Delta:', JSON.stringify(delta));
+    console.log('Plain Text:', plainText);
+
+    formData.description = delta
+    formData.inner_id = props.inner_id;
+  }
+};
+
+const handleModify = async (e) => {
+  extractContents()
+  try {
+    var response = await fetch('http://localhost:3001/user/tasks/modify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+    var data = await response.json();
+
+    if (data.err != "") {
+      alert("Invalid entries. Please check.")
+    }
+    else {
+      alert("Task modified successfully.")
+      setFormData({
+        id: '',
+        title: '',
+        description: '',
+        due: ''
+      })
+    }
+  } catch (error) {
+    alert("Invalid field(s) - please check your input.")
+    console.error('Error:', error);
+  }
+};
