@@ -32,6 +32,7 @@ const dateInputRef = useRef(null);
       const newEditable = !prevEditable;
       if (quill) {
         quill.enable(newEditable); // Enable or disable the editor
+        if(!newEditable) { handleModify(); console.log("hola")}
         setButtonText(newEditable ? 'Save All' : 'Edit Task'); // Update button text
       }
       return newEditable;
@@ -53,6 +54,54 @@ const dateInputRef = useRef(null);
       };
     }
   }, [initialValue]);
+
+  const [formData, setFormData] = useState({
+    inner_id: '',
+    description: '',
+  });
+
+  const extractContents = () => {
+    if (quill) {
+      const delta = quill.root.innerHTML // Get the Delta format
+      const plainText = quill.getText(); // Get plain text
+
+      console.log('Delta:', JSON.stringify(delta));
+      console.log('Plain Text:', plainText);
+
+      formData.description = delta
+      formData.inner_id = props.inner_id;
+    }
+  };
+
+  const handleModify = async (e) => {
+    extractContents()
+    try {
+      var response = await fetch('http://localhost:3001/user/tasks/modify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      var data = await response.json();
+
+      if (data.err != "") {
+        alert("Invalid entries. Please check.")
+      }
+      else {
+        alert("Task modified successfully.")
+        setFormData({
+          id: '',
+          title: '',
+          description: '',
+          due: ''
+        })
+      }
+    } catch (error) {
+      alert("Invalid field(s) - please check your input.")
+      console.error('Error:', error);
+    }
+  };
 
   const handleDelete = async (e) => {
     
