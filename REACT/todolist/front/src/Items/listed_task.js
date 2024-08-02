@@ -4,46 +4,41 @@ import 'react-quill/dist/quill.bubble.css';
 import { useEffect, useRef, useState } from "react";
 
 const Tasks = (props) => {
-
   /* Quill configuration */
-  const dateInputRef = useRef(null);
-  console.log(props.title)
-  const initialValue = props.due.substring(0,10);
-  console.log(initialValue)
+const dateInputRef = useRef(null);
+  console.log(props.title);
+  const initialValue = props.due.substring(0, 10);
+  console.log(initialValue);
   const quillRef = useRef(null); // Reference to the editor div
   const [quill, setQuill] = useState(null); // State to hold the Quill instance
   const [editable, setEditable] = useState(false);
+  const [buttonText, setButtonText] = useState('Edit Task'); // State to manage button text
 
-  const edit = () => {
-    const buttonToTrigger = document.getElementById('fetchButton');
-    console.log(editable)
-    setEditable(x => !x)
-    buttonToTrigger.click(); 
-  }
-
+  // Initialize Quill editor
   useEffect(() => {
-    if (!editable) {
-      if (quillRef.current && !quill) {
-        const quillInstance = new Quill(quillRef.current, {
-          theme: 'bubble',
-        });
-        setQuill(quillInstance);
-        quillInstance.disable(editable);
-        quillInstance.root.innerHTML = props.description;
-      }
+    if (quillRef.current && !quill) {
+      const quillInstance = new Quill(quillRef.current, {
+        theme: 'snow',
+      });
+      setQuill(quillInstance);
+      quillInstance.disable(); // Start in read-only mode
+      quillInstance.root.innerHTML = props.description;
     }
-    else {
-      if (quillRef.current && !quill) {
-        const quillInstance = new Quill(quillRef.current, {
-          theme: 'snow',
-        });
-        setQuill(quillInstance);
-        quillInstance.disable(editable);
-        quillInstance.root.innerHTML = props.description;
-      } 
-    }
-  }, [quill]);
+  }, [quill, props.description]);
 
+  // Toggle editability
+  const edit = () => {
+    setEditable(prevEditable => {
+      const newEditable = !prevEditable;
+      if (quill) {
+        quill.enable(newEditable); // Enable or disable the editor
+        setButtonText(newEditable ? 'Save All' : 'Edit Task'); // Update button text
+      }
+      return newEditable;
+    });
+  };
+
+  // Set initial value for the date input
   useEffect(() => {
     const dateInput = dateInputRef.current;
     if (dateInput) {
@@ -57,7 +52,7 @@ const Tasks = (props) => {
         dateInput.removeEventListener('input', handleInput);
       };
     }
-  }, []);
+  }, [initialValue]);
 
   const handleDelete = async (e) => {
     
@@ -102,8 +97,9 @@ const Tasks = (props) => {
       <div className="SignUpButtonDiv" style={{ position: "relative", display: "flex", justifyContent: "space-between" }}>
         <button className="SignUpButton" style={{ marginTop: "20px", backgroundColor: "rgb(145, 255, 122)" }}>Complete task</button>
         <button className="SignUpButton" onClick={handleDelete} style={{ marginTop: "20px", backgroundColor: "rgb(255, 74, 92)" }}>Delete task</button>
-        <button className="SignUpButton" onClick={edit} style={{ marginTop: "20px", backgroundColor: "rgb(138, 142, 255)" }}>Modify task</button>
+        <button className="SignUpButton" id="modifyButton" onClick={edit} style={{ marginTop: "20px", backgroundColor: "rgb(138, 142, 255)" }}>{buttonText}</button>
       </div>
+    
     </div>
 
   if (initialValue == null && document.getElementById("due_date") != null && document.getElementById("due_to_header") != null ){
